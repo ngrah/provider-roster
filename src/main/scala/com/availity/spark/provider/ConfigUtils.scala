@@ -5,7 +5,6 @@ import org.json4s.jackson.JsonMethods.parse
 import java.io.File
 import scala.io.Source
 
-
 object ConfigUtils {
   implicit val formats = DefaultFormats
 
@@ -54,7 +53,6 @@ object ConfigUtils {
     detail_map
   }
 
-
   case class root_interface_(
                               config: config_
                             )
@@ -79,5 +77,4 @@ object ConfigUtils {
                                    format: String,
                                    partition: String
                                  )
-
 }

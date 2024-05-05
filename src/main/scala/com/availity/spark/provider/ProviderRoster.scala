@@ -24,7 +24,6 @@ object ProviderRoster {
       .getOrCreate()
     println("spark session created")
 
-
     val providers_df = IngestionUtils.ingest_file(spark, file_1_config, file_detail_tracker)
     val visits_df = IngestionUtils.ingest_file(spark, file_2_config, file_detail_tracker)
     file_detail_tracker.print_file_details()
@@ -41,7 +40,6 @@ object ProviderRoster {
       groupBy("provider_id", "provider_name", "provider_specialty").agg(count("visit_id").alias("number_of_visits"))
     visits_per_provider_df.show
     ExportUtils.export_json(visits_per_provider_df, visits_per_provider_config)
-
 
     /*
     Given the two datasets, calculate the total number of visits per provider per month.

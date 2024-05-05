@@ -64,6 +64,4 @@ object IngestionUtils {
   }
 
   val visits_schema = StructType(Seq(StructField("visit_id", StringType, nullable = false), StructField("provider_id", StringType, nullable = false), StructField("visit_service_date", StringType, nullable = false)))
-
-
 }

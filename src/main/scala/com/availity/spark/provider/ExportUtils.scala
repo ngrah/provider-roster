@@ -27,12 +27,4 @@ object ExportUtils {
       }
     }
   }
-
-  def clean_json(export_file_configs: Map[String, String]): Unit = {
-    val file_path = export_file_configs.getOrElse("path", "")
-    if (file_path.isEmpty) {
-      println("File path config is required")
-    }
-
-  }
 }

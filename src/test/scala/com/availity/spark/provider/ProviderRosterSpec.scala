@@ -33,23 +33,18 @@ class ProviderRosterSpec extends AnyFunSpec with DataFrameComparer with BeforeAn
       .getOrCreate()
     println("spark session created")
 
-
     val providers_df = IngestionUtils.ingest_file(spark, file_1_config, file_detail_tracker)
     val visits_df = IngestionUtils.ingest_file(spark, file_2_config, file_detail_tracker)
     file_detail_tracker.print_file_details()
     val visits_providers_df = visits_df.join(providers_df, "provider_id")
 
-
     val visits_per_provider_df = visits_providers_df.
       selectExpr("provider_id", "concat(first_name,' ',middle_name,' ',last_name) as provider_name", "provider_specialty", "visit_id").
       groupBy("provider_id", "provider_name", "provider_specialty").agg(count("visit_id").alias("number_of_visits"))
 
-
     val monthly_visits_per_provider_df = visits_providers_df.
       selectExpr("provider_id", "from_unixtime(unix_timestamp(visit_service_date, 'yyyy-MM-dd'),'MMMM') as month", "visit_id").
       groupBy("provider_id", "month").agg(count("visit_id").alias("number_of_visits"))
-
-
 
     it("visits per provider column names") {
       assert(visits_per_provider_df.columns === Array("provider_id","provider_name","provider_specialty","number_of_visits"))
@@ -70,7 +65,6 @@ class ProviderRosterSpec extends AnyFunSpec with DataFrameComparer with BeforeAn
       distinct().count()
       assert(monthly_visits_per_provider_df.count() === expected_count)
     }
-
 
   }
 }
