@@ -23,6 +23,7 @@ object ProviderRoster {
       .appName("Provider-Roster")
       .getOrCreate()
     println("spark session created")
+    spark.sparkContext.setLogLevel("WARN")
 
     val providers_df = IngestionUtils.ingest_file(spark, file_1_config, file_detail_tracker)
     val visits_df = IngestionUtils.ingest_file(spark, file_2_config, file_detail_tracker)

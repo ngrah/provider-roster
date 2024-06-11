@@ -16,7 +16,10 @@ class IngestionDetailsTracker {
 
   def print_file_details(): Unit = {
     println("Ingested File Details")
-    for (file_detail <- ingested_file_details) {
+    if (ingested_file_details.isEmpty){
+      println("Warning: No files were ingested")
+    }
+    else for (file_detail <- ingested_file_details) {
       println(s"""\"Path\": ${file_detail.getOrElse("path", "")}, \"Type\": ${file_detail.getOrElse("Type", "")}, \"Ingestion Timestamp\": ${file_detail.getOrElse("ingestion_ts", "")}""")
     }
   }

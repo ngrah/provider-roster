@@ -50,7 +50,7 @@ object IngestionUtils {
     val file_type = file_configs.getOrElse("file_type", "csv")
     var df: DataFrame = file_type match {
       case "csv" => {
-        file_reader.csv(file_path)
+        file_reader.csv(s"file:///$file_path")
       }
 
       case _ => {

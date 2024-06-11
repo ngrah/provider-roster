@@ -1,26 +1,26 @@
 {
   "config": {
     "src_file_1": {
-      "path": "file:///C:/Users/ngrah/provider-roster/data/providers.csv",
+      "path": "C:/Users/ngrah/provider-roster/data/providers.csv",
       "delimiter": "|",
       "schema": "",
       "header": "y",
       "file_type": "csv"
     },
     "src_file_2": {
-      "path": "file:///C:/Users/ngrah/provider-roster/data/visits.csv",
+      "path": "C:/Users/ngrah/provider-roster/data/visits.csv",
       "delimiter": ",",
       "schema": "visits",
       "header": "n",
       "file_type": "csv"
     },
     "visits_per_provider_file": {
-      "path": "file:///C:/Users/ngrah/provider-roster/data/visits_per_provider",
+      "path": "C:/Users/ngrah/provider-roster/data/visits_per_provider",
       "format": "json",
       "partition": "provider_specialty"
     },
     "monthly_visits_per_provider_file": {
-      "path": "file:///C:/Users/ngrah/provider-roster/data/monthly_visits_per_provider",
+      "path": "C:/Users/ngrah/provider-roster/data/monthly_visits_per_provider",
       "format": "json",
       "partition": ""
     }
